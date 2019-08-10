@@ -18,6 +18,8 @@ variables:
   IMAGE_TAG: -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
   CONTAINER_NAME: frontend
 
+before_script:
+  - docker info
 build:
   stage: build
   script:
