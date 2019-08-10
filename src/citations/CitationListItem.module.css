@@ -1,0 +1,50 @@
+.listItem {
+  border-bottom: 1px solid gray;
+  padding: 5px;
+  padding-left: 45px;
+  margin: 10px 0;
+  position: relative;
+  min-height: 100px;
+}
+
+.listItem a {
+  color: black;
+}
+
+.listItem a:hover {
+  color: #5a7d1c;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  vertical-align: top;
+  background-color: #f6f6f6;
+  width: 35px;
+  font-size: 1em;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.number a {
+  color: #646464;
+  font-weight: bold;
+}
+
+.keywordsLine {
+  margin-top: 10px;
+  font-variant: small-caps;
+  opacity: 0.6;
+}
+
+.keywordsLine a {
+  margin-right: 30px;
+}

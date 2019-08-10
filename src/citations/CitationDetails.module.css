@@ -1,0 +1,14 @@
+.citationDetails {
+  padding: 0 20px;
+}
+
+.citationDetails {
+}
+
+.citationDetails label {
+  grid-area: labels;
+}
+
+.citationDetails span.value {
+  grid-area: values;
+}

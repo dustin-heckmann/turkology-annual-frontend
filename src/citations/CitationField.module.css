@@ -1,0 +1,15 @@
+.field {
+  display: grid;
+  grid-template-areas: "labels values";
+  grid-template-columns: 0.3fr 0.6fr;
+  grid-row-gap: 20px;
+}
+
+.field label {
+  font-weight: bold;
+  grid-area: labels;
+}
+
+.field .value {
+  grid-area: values;
+}

@@ -1,0 +1,78 @@
+.header {
+  display: grid;
+  padding: 10px;
+  background-color: #9bc057;
+  min-height: 120px;
+  grid-template-areas:
+    "cluster-logo . "
+    "app-name search-bar";
+  grid-row-gap: 5px;
+  grid-template-columns: 0.7fr 0.3fr;
+  grid-template-rows: 1.5fr 1fr;
+}
+
+.navigation {
+  background-color: #3c3c3b;
+  color: white;
+  text-align: right;
+  padding: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.navigation a {
+  color: white;
+}
+
+.navigation a:hover {
+  color: #9bc057;
+}
+
+.appName {
+  font-size: 1.5em;
+  color: white;
+  grid-area: app-name;
+  display: flex;
+  align-items: center;
+  font-family: "Brawler", serif;
+}
+
+.clusterLogo {
+  opacity: 0.5;
+  display: inline-block;
+  grid-area: cluster-logo;
+  margin-left: 10px;
+  height: 50px;
+}
+
+.searchBar {
+  grid-area: search-bar;
+  display: flex;
+  align-items: center;
+  /* justify-items: right; */
+  justify-self: stretch;
+}
+
+@media only screen and (max-width: 699px) {
+  .header {
+    grid-template-areas:
+      "cluster-logo"
+      "app-name"
+      "search-bar";
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1.2fr 1fr;
+  }
+  .clusterLogo {
+    height: 40px;
+  }
+
+  .searchBar {
+    padding: 0;
+  }
+}
+
+.navigation,
+.header {
+  padding-left: 10%;
+  padding-right: 10%;
+}
