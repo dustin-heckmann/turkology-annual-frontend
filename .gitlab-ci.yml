@@ -8,8 +8,6 @@ variables:
 
 build:
   stage: build
-  tags:
-    - shell
   script:
     - docker login $CI_REGISTRY
     - docker run
@@ -22,8 +20,6 @@ build:
 
 dockerize:
   stage: dockerize
-  tags:
-    - shell
   script:
     - docker login $CI_REGISTRY
     - docker build --tag $IMAGE_TAG .
