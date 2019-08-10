@@ -8,7 +8,7 @@ stages:
   - dockerize
 
 variables:
-  IMAGE_TAG: -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+  IMAGE_TAG: $CI_REGISTRY_IMAGE
   CONTAINER_NAME: frontend
 
 build:
