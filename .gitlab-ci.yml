@@ -1,5 +1,12 @@
 image: docker:latest
 
+services:
+  - docker:dind
+
+before_script:
+  - docker info
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
 stages:
   - build
   - dockerize
@@ -7,13 +14,11 @@ stages:
 variables:
   IMAGE_TAG: -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
   CONTAINER_NAME: frontend
+  DOCKER_HOST: tcp://localhost:2375
 
-before_script:
-  - docker info
 build:
   stage: build
   script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker run
       --mount type=bind,source="$(pwd)",target=/app
       node:12.4.0
@@ -25,6 +30,5 @@ build:
 dockerize:
   stage: dockerize
   script:
-    - docker login $CI_REGISTRY
     - docker build --tag $IMAGE_TAG .
     - docker push $IMAGE_TAG
