@@ -19,13 +19,9 @@ interface ResultList {
   result: Citation[];
 }
 
-const PORT = 8904;
-
 export const getCitation = async (citationId: string): Promise<Citation> => {
   //return testCitations.find(citation => citation.id === citationId);
-  const response = await fetch(
-    `http://localhost:${PORT}/citations/${citationId}`
-  );
+  const response = await fetch(`/api/citations/${citationId}`);
   if (!response.ok) throw new Error("Could not fetch citation");
   const body = await response.json();
   return body.result;
@@ -42,9 +38,7 @@ export async function findCitations({
     q: fullText || "",
     keyword: keyword || ""
   }).toString();
-  const response = await fetch(
-    `http://localhost:${PORT}/citations?${queryString}`
-  );
+  const response = await fetch(`/api/citations?${queryString}`);
   if (!response.ok) throw new Error("Could not fetch citations");
   return await response.json();
 }
