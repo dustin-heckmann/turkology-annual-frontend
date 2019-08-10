@@ -1,0 +1,30 @@
+stages:
+  - build
+  - dockerize
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE
+  CONTAINER_NAME: frontend
+
+build:
+  stage: build
+  tags:
+    - shell
+  script:
+    - docker login $CI_REGISTRY
+    - docker run
+      --mount type=bind,source="$(pwd)",target=/app
+      node:12.4.0
+      /bin/bash -c /app/run_build.sh
+  artifacts:
+    paths:
+      - build
+
+dockerize:
+  stage: dockerize
+  tags:
+    - shell
+  script:
+    - docker login $CI_REGISTRY
+    - docker build --tag $IMAGE_TAG .
+    - docker push $IMAGE_TAG
