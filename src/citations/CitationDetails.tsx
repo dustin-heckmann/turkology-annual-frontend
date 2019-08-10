@@ -27,7 +27,7 @@ export default class CitationDetails extends Component<Props, State> {
   render() {
     const { citation } = this.state
     if (citation) {
-      const { id, title, rawText, volume, number, authors, editors, comment, location, datePublished } = citation
+      const { title, rawText, volume, number, authors, editors, comment, location, datePublished } = citation
       return <>
         <section className={styles.citationDetails}>
           <CitationField label='TA entry' value={`Volume ${volume}, No. ${number}`} />

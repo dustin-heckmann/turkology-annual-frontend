@@ -20,7 +20,7 @@ export default class Header extends Component<Props> {
     return (
 
       <>
-        <nav className={styles.navigation}><a href="#">Navigation</a></nav>
+        <nav className={styles.navigation}></nav>
         <header className={styles.header}>
           <img className={styles.clusterLogo} src={logo} alt="Cluster of Excellence - Asia and Europe in a Global Context"></img>
           <div className={styles.appName}><span>Turkology Annual Online</span></div>

@@ -48,30 +48,3 @@ export async function findCitations({
   if (!response.ok) throw new Error("Could not fetch citations");
   return await response.json();
 }
-
-const testCitations = [
-  {
-    id: "1",
-    volume: "1",
-    number: 1,
-    title: "Lexikon der islamischen Welt"
-  },
-  {
-    id: "2",
-    volume: "1",
-    number: 2,
-    title: "Istanbul"
-  },
-  {
-    id: "3",
-    volume: "1",
-    number: 3,
-    title: "Atatürk"
-  },
-  {
-    id: "4",
-    volume: "1",
-    number: 4,
-    title: "Der Islam"
-  }
-];

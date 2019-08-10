@@ -1,6 +1,5 @@
 import React from "react";
 import fieldStyles from './CitationField.module.css'
-import styles from './PeopleField.module.css'
 import { Person } from "./Person";
 
 interface Props {
