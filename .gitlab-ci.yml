@@ -6,6 +6,7 @@ services:
 stages:
   - build
   - dockerize
+  - deploy
 
 variables:
   IMAGE_TAG: $CI_REGISTRY_IMAGE
@@ -28,3 +29,8 @@ dockerize:
   script:
     - docker build --tag $IMAGE_TAG .
     - docker push $IMAGE_TAG
+
+trigger_build:
+  stage: deploy
+  script:
+    - "curl -X POST -F token=TOKEN -F ref=REF_NAME https://gitlab.com/api/v4/projects/13753673/trigger/pipeline"
