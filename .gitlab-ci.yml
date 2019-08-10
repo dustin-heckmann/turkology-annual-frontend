@@ -16,12 +16,10 @@ variables:
   CONTAINER_NAME: frontend
 
 build:
+  image: node:12.4.0
   stage: build
   script:
-    - docker run
-      --mount type=bind,source="$(pwd)",target=/app
-      node:12.4.0
-      /bin/bash -c /app/run_build.sh
+    - ./run_build.sh
   artifacts:
     paths:
       - build
