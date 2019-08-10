@@ -14,7 +14,7 @@ stages:
 variables:
   IMAGE_TAG: -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
   CONTAINER_NAME: frontend
-  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_HOST: tcp://docker:2375
 
 build:
   stage: build
