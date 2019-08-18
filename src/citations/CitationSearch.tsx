@@ -4,6 +4,8 @@ import CitationList from "./CitationList";
 import Citation from "./Citation";
 import SearchHeader from "./SearchHeader";
 import ErrorMessage from "../components/ErrorMessage";
+import Pagination from "./Pagination";
+import PaginationSelector from "./PaginationSelector";
 
 interface Props {
   location: {
@@ -20,6 +22,8 @@ interface State {
   total: number | null
   citations: Citation[]
   error: boolean
+  pagesTotal: number
+  currentPage: number
 }
 
 interface Params {
@@ -34,6 +38,8 @@ export default class CitationSearch extends React.Component<Props, State> {
       query: {},
       citations: [],
       total: null,
+      currentPage: 0,
+      pagesTotal: 0,
       error: false
     }
   }
@@ -42,7 +48,7 @@ export default class CitationSearch extends React.Component<Props, State> {
     this.fetchResults()
   }
 
-  async componentDidUpdate(prevProps: Props) {
+  async componentDidUpdate(prevProps: Props, prevState: State) {
     if (prevProps.location.search !== this.props.location.search) {
       this.fetchResults()
     }
@@ -56,12 +62,14 @@ export default class CitationSearch extends React.Component<Props, State> {
     await this.setState({ query: { volume, fullText, keyword } })
   }
 
-  async fetchResults() {
+  async fetchResults(page: number = 0) {
     await this.readURLParameters()
     try {
-      const resultList = await findCitations(this.state.query)
+      const resultList = await findCitations(this.state.query, page)
       this.setState({
         citations: resultList.result,
+        currentPage: resultList.currentPage,
+        pagesTotal: resultList.pagesTotal,
         total: resultList.total
       })
     } catch (e) {
@@ -70,10 +78,19 @@ export default class CitationSearch extends React.Component<Props, State> {
   }
 
   render() {
+    const { currentPage, pagesTotal, total } = this.state
+    const paginationComponent = (
+      <PaginationSelector
+        pageCount={pagesTotal}
+        currentPage={currentPage}
+        onPageChange={(newPage: number) => { this.fetchResults(newPage) }} />
+    )
     return (this.state.error) ? <ErrorMessage /> : (
       <>
-        <SearchHeader total={this.state.total} />
+        {paginationComponent}
+        <SearchHeader total={total} />
         <CitationList citations={this.state.citations} />
+        {paginationComponent}
       </>
     )
   }

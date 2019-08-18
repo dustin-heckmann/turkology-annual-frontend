@@ -1,4 +1,5 @@
 import Citation from "./Citation";
+import Pagination from "./Pagination";
 
 interface Query {
   volume?: string;
@@ -9,13 +10,8 @@ interface Query {
 
 interface ResultList {
   total: number;
-  pagination?: {
-    start_index: number;
-    previous: string;
-    next: string;
-    total: number;
-    pages: any;
-  };
+  pagesTotal: number;
+  currentPage: number;
   result: Citation[];
 }
 
@@ -27,16 +23,15 @@ export const getCitation = async (citationId: string): Promise<Citation> => {
   return body.result;
 };
 
-export async function findCitations({
-  volume,
-  fullText,
-  keyword
-}: Query): Promise<ResultList> {
-  //   return { total: testCitations.length, result: testCitations };
+export async function findCitations(
+  { volume, fullText, keyword }: Query,
+  page: number = 0
+): Promise<ResultList> {
   const queryString = new URLSearchParams({
     volume: volume || "",
     q: fullText || "",
-    keyword: keyword || ""
+    keyword: keyword || "",
+    page: page.toString()
   }).toString();
   const response = await fetch(`/api/citations?${queryString}`);
   if (!response.ok) throw new Error("Could not fetch citations");
