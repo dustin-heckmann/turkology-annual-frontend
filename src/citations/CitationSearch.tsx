@@ -4,7 +4,6 @@ import CitationList from "./CitationList";
 import Citation from "./Citation";
 import SearchHeader from "./SearchHeader";
 import ErrorMessage from "../components/ErrorMessage";
-import Pagination from "./Pagination";
 import PaginationSelector from "./PaginationSelector";
 
 interface Props {

@@ -1,5 +1,4 @@
 import Citation from "./Citation";
-import Pagination from "./Pagination";
 
 interface Query {
   volume?: string;
