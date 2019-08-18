@@ -26,7 +26,7 @@ export default class SearchBar extends Component<Props> {
 
   render() {
     return (
-      <form name="quicksearch" className={styles.searchBar}>
+      <form name="quicksearch" className={styles.searchBar} action="/citations" >
         <input
           className={styles.input}
           type="search"
