@@ -15,6 +15,7 @@ export default interface Citation {
   numberOfVolumes?: string | number;
   numberOfPages: any;
   material: any[];
+  amendments: string[];
   type: string;
   reviews: string[] = [];
   keywords: {

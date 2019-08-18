@@ -39,10 +39,11 @@ export default class CitationDetails extends Component<Props, State> {
           <CitationFieldMulti label='Material' values={citation.material ? citation.material.map(mat => mat.raw) : []} />
           <CitationField label='Number of volumes' value={citation.numberOfVolumes} />
           <CitationField label='Series' value={citation.series} />
-          <CitationField label='Comment' value={citation.comment} />
           <CitationField label='Location' value={citation.location} />
           <DateField label='Publication date' date={citation.datePublished} />
           <CitationFieldMulti label='Reviews' values={citation.reviews} />
+          <CitationField label='Comment' value={citation.comment} />
+          <CitationFieldMulti label='Amendments' values={citation.amendments} />
           <CitationField label='Raw string' value={citation.rawText} />
         </section>
       </>
