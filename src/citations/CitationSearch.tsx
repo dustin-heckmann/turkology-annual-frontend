@@ -90,7 +90,6 @@ export default class CitationSearch extends React.Component<Props, State> {
         {paginationComponent}
         <SearchHeader total={total} />
         <CitationList citations={this.state.citations} />
-        {paginationComponent}
       </>
     )
   }

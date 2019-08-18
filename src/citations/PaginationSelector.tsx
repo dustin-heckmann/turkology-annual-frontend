@@ -1,5 +1,7 @@
 import ReactPaginate from 'react-paginate'
-import React from 'react';
+import React from 'react'
+
+import styles from './PaginationSelector.module.css'
 
 interface Props {
   pageCount: number
@@ -22,5 +24,12 @@ export default ({
     marginPagesDisplayed={3}
     onPageChange={handlePageClick}
     disableInitialCallback={true}
+    containerClassName={styles.container}
+    activeClassName={styles.active}
+    pageLinkClassName={styles.pageLink}
+    previousLinkClassName={styles.previousLink}
+    nextLinkClassName={styles.nextLink}
+    previousLabel="<"
+    nextLabel=">"
   />
 }
