@@ -23,6 +23,7 @@ interface State {
   citations: Citation[]
   error: boolean
   pagesTotal: number
+  offset: number
   currentPage: number
 }
 
@@ -40,6 +41,7 @@ export default class CitationSearch extends React.Component<Props, State> {
       total: null,
       currentPage: 0,
       pagesTotal: 0,
+      offset: 0,
       error: false
     }
   }
@@ -65,12 +67,13 @@ export default class CitationSearch extends React.Component<Props, State> {
   async fetchResults(page: number = 0) {
     await this.readURLParameters()
     try {
-      const resultList = await findCitations(this.state.query, page)
+      const response = await findCitations(this.state.query, page)
       this.setState({
-        citations: resultList.result,
-        currentPage: resultList.currentPage,
-        pagesTotal: resultList.pagesTotal,
-        total: resultList.total
+        citations: response.result,
+        currentPage: response.currentPage,
+        pagesTotal: response.pagesTotal,
+        offset: response.offset,
+        total: response.total
       })
     } catch (e) {
       this.setState({ error: true })
@@ -89,7 +92,7 @@ export default class CitationSearch extends React.Component<Props, State> {
       <>
         {paginationComponent}
         <SearchHeader total={total} />
-        <CitationList citations={this.state.citations} />
+        <CitationList citations={this.state.citations} offset={this.state.offset} />
       </>
     )
   }

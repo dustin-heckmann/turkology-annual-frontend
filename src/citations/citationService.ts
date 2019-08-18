@@ -12,6 +12,7 @@ interface ResultList {
   total: number;
   pagesTotal: number;
   currentPage: number;
+  offset: number;
   result: Citation[];
 }
 
