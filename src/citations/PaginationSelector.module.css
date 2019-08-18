@@ -1,21 +1,43 @@
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   list-style-type: none;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
-.active {
+.activeLink {
   font-weight: bold;
 }
 
-.pageLink,
-.previousLink,
-.nextLink {
+.page,
+.previous,
+.next {
+  background-color: #f6f6f6;
   color: black;
   padding: 8px 16px;
   text-decoration: none;
   border: 1px solid #ddd; /* Gray */
+}
+
+.pageLink,
+.previousLink,
+.nextLink,
+.breakLink {
+  cursor: pointer;
+}
+
+.break {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.previous {
+  margin-right: 10px;
+}
+
+.next {
+  margin-left: 10px;
 }

@@ -26,9 +26,15 @@ export default ({
     disableInitialCallback={true}
     containerClassName={styles.container}
     activeClassName={styles.active}
+    activeLinkClassName={styles.activeLink}
     pageLinkClassName={styles.pageLink}
     previousLinkClassName={styles.previousLink}
     nextLinkClassName={styles.nextLink}
+    pageClassName={styles.page}
+    previousClassName={styles.previous}
+    nextClassName={styles.next}
+    breakClassName={styles.break}
+    breakLinkClassName={styles.breakLink}
     previousLabel="<"
     nextLabel=">"
   />
