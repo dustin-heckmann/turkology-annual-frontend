@@ -3,9 +3,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  list-style-type: none;
   margin-bottom: 30px;
   flex-wrap: wrap;
+}
+
+.container li {
+  list-style-type: none;
 }
 
 .activeLink {

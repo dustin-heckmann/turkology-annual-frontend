@@ -1,6 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
 }
 
 a {
@@ -13,6 +21,17 @@ a:hover {
 
 main {
   padding: 10px 10%;
+  flex-grow: 1;
+  line-height: 1.5em;
+}
+
+main li {
+  list-style-type: circle;
+}
+
+main ul {
+  padding: 0;
+  margin: 0;
 }
 
 /* latin */

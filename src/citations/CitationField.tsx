@@ -3,7 +3,7 @@ import styles from './CitationField.module.css'
 
 interface Props {
   label: string;
-  value?: string;
+  value?: string | number | null;
 }
 
 export default ({ label, value }: Props) => {
@@ -11,6 +11,6 @@ export default ({ label, value }: Props) => {
     return <></>
   }
   return <div className={styles.field}>
-    <label>{label}:</label> <span className='value' >{value}</span>
+    <label>{label}:</label> <span className={styles.value} >{value}</span>
   </div>
 }

@@ -5,6 +5,7 @@ import CitationField from "./CitationField";
 import PeopleField from "./PeopleField";
 import DateField from "./DateField";
 import styles from './CitationDetails.module.css';
+import CitationFieldMulti from "./CitationFieldMulti";
 
 interface Props {
   match: {
@@ -27,17 +28,22 @@ export default class CitationDetails extends Component<Props, State> {
   render() {
     const { citation } = this.state
     if (citation) {
-      const { title, rawText, volume, number, authors, editors, comment, location, datePublished } = citation
       return <>
         <section className={styles.citationDetails}>
-          <CitationField label='TA entry' value={`Volume ${volume}, No. ${number}`} />
-          <CitationField label='Title' value={title} />
-          <PeopleField label='Authors' people={authors} />
-          <PeopleField label='Editors' people={editors} />
-          <CitationField label='Comment' value={comment} />
-          <CitationField label='Location' value={location} />
-          <DateField label='Publication date' date={datePublished} />
-          <CitationField label='Raw string' value={rawText} />
+          <CitationField label='TA entry' value={`Volume ${citation.volume}, No. ${citation.number}`} />
+          <CitationField label='Publication type' value={citation.type} />
+          <CitationField label='Title' value={citation.title} />
+          <PeopleField label='Authors' people={citation.authors} />
+          <PeopleField label='Editors' people={citation.editors} />
+          <CitationField label='Number of pages' value={citation.numberOfPages} />
+          <CitationFieldMulti label='Material' values={citation.material ? citation.material.map(mat => mat.raw) : []} />
+          <CitationField label='Number of volumes' value={citation.numberOfVolumes} />
+          <CitationField label='Series' value={citation.series} />
+          <CitationField label='Comment' value={citation.comment} />
+          <CitationField label='Location' value={citation.location} />
+          <DateField label='Publication date' date={citation.datePublished} />
+          <CitationFieldMulti label='Reviews' values={citation.reviews} />
+          <CitationField label='Raw string' value={citation.rawText} />
         </section>
       </>
     } else return (<></>);

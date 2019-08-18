@@ -5,4 +5,4 @@ interface Props {
     title: string
 }
 
-export default ({ title }: Props) => <h1 className={styles.pageTitle}>{title}</h1>
+export default ({ title }: Props) => <div className={styles.pageTitle}>{title}</div>

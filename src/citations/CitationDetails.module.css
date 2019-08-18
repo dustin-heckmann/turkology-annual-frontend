@@ -1,4 +1,7 @@
 .citationDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
   padding: 0 20px;
 }
 

@@ -13,10 +13,10 @@ export default ({ label, people }: Props) => {
   }
   return (<div className={fieldStyles.field}>
     <label>{label}:</label>
-    <ul className='value'>
+    <div>
       {people.map(person => (
         <li>{person.raw}</li>
       ))}
-    </ul>
+    </div>
   </div>)
 }

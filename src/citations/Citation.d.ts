@@ -1,4 +1,5 @@
 import { Person } from "./Person";
+import { any } from "prop-types";
 
 export default interface Citation {
   id: string;
@@ -10,6 +11,12 @@ export default interface Citation {
   rawText: string;
   location?: string;
   datePublished?: string | number | Record;
+  series?: string;
+  numberOfVolumes?: string | number;
+  numberOfPages: any;
+  material: any[];
+  type: string;
+  reviews: string[] = [];
   keywords: {
     code: string;
     raw: string;
