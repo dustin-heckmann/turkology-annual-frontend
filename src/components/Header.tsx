@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import styles from './Header.module.css';
 import logo from '../img/logo_cluster.png';
 import PageTitle from './PageTitle';
+import Navigation from './Navigation';
 
 interface Props {
   location: {
@@ -20,7 +21,8 @@ export default class Header extends Component<Props> {
     return (
 
       <>
-        <nav className={styles.navigation}></nav>
+        <Navigation />
+
         <header className={styles.header}>
           <img className={styles.clusterLogo} src={logo} alt="Cluster of Excellence - Asia and Europe in a Global Context"></img>
           <div className={styles.appName}><span>Turkology Annual Online</span></div>

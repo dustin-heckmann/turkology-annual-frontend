@@ -22,6 +22,7 @@
 
 .navigation a {
   color: white;
+  margin-left: 20px;
 }
 
 .navigation a:hover {
