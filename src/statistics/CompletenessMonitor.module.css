@@ -1,0 +1,25 @@
+.row,
+.headerRow {
+  display: flex;
+  flex: 1 1 0;
+}
+
+.headerRow {
+  font-weight: bold;
+}
+
+.volume,
+.expected,
+.actual,
+.missing,
+.missingRelative,
+.missingNumbers {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  text-align: center;
+}
+
+.complete {
+  color: #9bc057;
+}
