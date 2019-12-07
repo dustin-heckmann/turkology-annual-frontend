@@ -1,15 +1,15 @@
-import React from "react";
-import { Completeness } from "./statisticsService";
-import styles from "./CompletenessMonitor.module.css";
+import React from 'react'
+import { Completeness } from './statisticsService'
+import styles from './CompletenessMonitor.module.css'
 
 interface Props {
-  completeness: Record<string, Completeness>;
+  completeness: Record<string, Completeness>
 }
 
 const CompletenessMonitor = ({ completeness }: Props) => {
   const numericRows = Object.entries(completeness).map((entry, number) => (
     <CompletenessEntry completeness={entry[1]} volume={entry[0]} key={number} />
-  ));
+  ))
   const missingNumbersRows = Object.entries(
     completeness
   ).map((entry, number) => (
@@ -18,7 +18,7 @@ const CompletenessMonitor = ({ completeness }: Props) => {
       volume={entry[0]}
       key={number}
     />
-  ));
+  ))
 
   return (
     <>
@@ -39,19 +39,19 @@ const CompletenessMonitor = ({ completeness }: Props) => {
       <h2>Missing numbers by volume</h2>
       {missingNumbersRows}
     </>
-  );
-};
+  )
+}
 
 const CompletenessEntry = ({
   completeness,
   volume
 }: {
-  completeness: Completeness;
-  volume: string;
+  completeness: Completeness
+  volume: string
 }) => (
   <div
     className={`${styles.row} ${
-      completeness.actual == completeness.expected ? styles.complete : null
+      completeness.actual === completeness.expected ? styles.complete : null
     }`}
   >
     <span className={styles.volume}>{volume}</span>
@@ -65,32 +65,32 @@ const CompletenessEntry = ({
         ((completeness.expected - completeness.actual) /
           completeness.expected) *
         100
-      ).toFixed(2)}{" "}
+      ).toFixed(2)}{' '}
       %
     </span>
   </div>
-);
+)
 
 const MissingCitationsEntry = ({
   completeness,
   volume
 }: {
-  completeness: Completeness;
-  volume: string;
+  completeness: Completeness
+  volume: string
 }) =>
-  completeness.actual == completeness.expected ? null : (
+  completeness.actual === completeness.expected ? null : (
     <div>
       <h2>{volume}</h2>
       <span>
         {completeness.missing && completeness.missing.length ? (
           <span className={styles.missingNumbers}>
-            {completeness.missing.join(", ")}
+            {completeness.missing.join(', ')}
           </span>
         ) : (
-          "-"
+          '-'
         )}
       </span>
     </div>
-  );
+  )
 
-export default CompletenessMonitor;
+export default CompletenessMonitor
