@@ -1,0 +1,22 @@
+.navigation {
+  background-color: #3c3c3b;
+  color: white;
+  text-align: right;
+  padding: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.navigation a {
+  color: white;
+  margin-left: 20px;
+}
+
+.navigation a:hover {
+  color: #9bc057;
+}
+
+.navigation {
+  padding-left: 10%;
+  padding-right: 10%;
+}

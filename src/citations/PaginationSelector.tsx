@@ -26,7 +26,7 @@ const PaginationSelector = ({
       onPageChange={handlePageClick}
       disableInitialCallback
       containerClassName={styles.container}
-      activeClassName={styles.active}
+      activeClassName={styles.activeLink}
       activeLinkClassName={styles.activeLink}
       pageLinkClassName={styles.pageLink}
       previousLinkClassName={styles.previousLink}

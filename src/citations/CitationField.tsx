@@ -12,7 +12,7 @@ const CitationField = ({ label, value }: Props) => {
   }
   return (
     <div className={styles.field}>
-      <label>{label}:</label> <span className={styles.value}>{value}</span>
+      <label>{label}:</label> {value}
     </div>
   )
 }

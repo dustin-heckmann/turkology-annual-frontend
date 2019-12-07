@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './CitationField.module.css'
+import styles from './CitationFieldMulti.module.css'
 
 interface Props {
   label: string
@@ -13,11 +13,9 @@ const CitationFieldMulti = ({ label, values }: Props) => {
   return (
     <div className={styles.field}>
       <label>{label}:</label>
-      <div className={styles.value}>
-        {values.map((value, index) => (
-          <li key={index}>{value.toString()}</li>
-        ))}
-      </div>
+      {values.map((value, index) => (
+        <li key={index}>{value.toString()}</li>
+      ))}
     </div>
   )
 }

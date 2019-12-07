@@ -29,28 +29,24 @@ const CitationListItem = (props: Props) => {
       <div className={styles.number}>
         <Link to={url}>{matchNumber}</Link>
       </div>
-      <div className={styles.content}>
+      <div>
         <summary className={styles.title}>
           <Link to={url}>{title || rawText}</Link>
         </summary>
-        <div className={styles.detailLine}>
-          {authors
-            ? authors
-                .map(({ first, last, middle, raw }) =>
-                  first && last ? `${last}, ${first}` : raw
-                )
-                .join(' | ')
-            : ''}
-        </div>
-        <div className={styles.detailLine}>
+        {authors
+          ? authors
+              .map(({ first, last, middle, raw }) =>
+                first && last ? `${last}, ${first}` : raw
+              )
+              .join(' | ')
+          : ''}
+        <div>
           {location}
           {location && datePublished ? ', ' : ''}
           {datePublished}
         </div>
-        <div className={styles.detailLine}>
-          TA
-          {volume},{number}
-        </div>
+        TA
+        {volume},{number}
         <div className={styles.keywordsLine}>
           {keywords.map(({ nameEN, raw, code }) => (
             <Link to={`/citations?keyword=${code}`} key={code}>
