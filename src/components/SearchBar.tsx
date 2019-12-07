@@ -19,7 +19,6 @@ export default class SearchBar extends Component<Props> {
   }
 
   handleSubmit(event: FormEvent) {
-    // this.setState({value: event.target.value});
     if (this.props.onSubmit) this.props.onSubmit(this.props.query)
     event.preventDefault()
   }
