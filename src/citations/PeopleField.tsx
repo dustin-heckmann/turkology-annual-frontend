@@ -1,27 +1,26 @@
-import React from 'react';
-import fieldStyles from './CitationField.module.css';
-import { Person } from './Person';
+import React from "react";
+import fieldStyles from "./CitationField.module.css";
+import { Person } from "./Person";
 
 interface Props {
   label: string;
   people?: Person[];
 }
 
-export default ({ label, people }: Props) => {
+const PeopleField = ({ label, people }: Props) => {
   if (!people || !people.length) {
     return <></>;
   }
   return (
     <div className={fieldStyles.field}>
-      <label>
-        {label}
-:
-      </label>
+      <label>{label}:</label>
       <div>
-        {people.map((person) => (
-          <li>{person.raw}</li>
+        {people.map((person, index) => (
+          <li key={index}>{person.raw}</li>
         ))}
       </div>
     </div>
   );
 };
+
+export default PeopleField;

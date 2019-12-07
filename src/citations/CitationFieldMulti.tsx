@@ -1,26 +1,25 @@
-import React from 'react';
-import styles from './CitationField.module.css';
+import React from "react";
+import styles from "./CitationField.module.css";
 
 interface Props {
   label: string;
   values: string[];
 }
 
-export default ({ label, values }: Props) => {
+const CitationFieldMulti = ({ label, values }: Props) => {
   if (!values || values.length === 0) {
     return <></>;
   }
   return (
     <div className={styles.field}>
-      <label>
-        {label}
-:
-      </label>
+      <label>{label}:</label>
       <div className={styles.value}>
-        {values.map((value) => (
-          <li>{value.toString()}</li>
+        {values.map((value, index) => (
+          <li key={index}>{value.toString()}</li>
         ))}
       </div>
     </div>
   );
 };
+
+export default CitationFieldMulti;

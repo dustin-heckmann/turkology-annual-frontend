@@ -1,20 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Citation from './Citation';
-import styles from './CitationListItem.module.css'; // Import css modules stylesheet as styles
+import React from "react";
+import { Link } from "react-router-dom";
+import Citation from "./Citation";
+import styles from "./CitationListItem.module.css"; // Import css modules stylesheet as styles
 
 interface Props {
-    citation: Citation,
-    matchNumber: number
+  citation: Citation;
+  matchNumber: number;
 }
 
-export default (props: Props) => {
+const CitationListItem = (props: Props) => {
   const {
-    citation:
-        {
-          id, volume, title, number, authors, rawText, location, datePublished, keywords,
-        },
-    matchNumber,
+    citation: {
+      id,
+      volume,
+      title,
+      number,
+      authors,
+      rawText,
+      location,
+      datePublished,
+      keywords
+    },
+    matchNumber
   } = props;
   const url = `/citations/${id}`;
   return (
@@ -27,30 +34,33 @@ export default (props: Props) => {
           <Link to={url}>{title || rawText}</Link>
         </summary>
         <div className={styles.detailLine}>
-          {authors ? authors.map(({
-            first, last, middle, raw,
-          }) => (first && last ? `${last}, ${first}` : raw)).join(' | ') : ''}
+          {authors
+            ? authors
+                .map(({ first, last, middle, raw }) =>
+                  first && last ? `${last}, ${first}` : raw
+                )
+                .join(" | ")
+            : ""}
         </div>
         <div className={styles.detailLine}>
           {location}
-          {location && datePublished ? ', ' : ''}
+          {location && datePublished ? ", " : ""}
           {datePublished}
         </div>
         <div className={styles.detailLine}>
-TA
-          {volume}
-,
-          {number}
+          TA
+          {volume},{number}
         </div>
         <div className={styles.keywordsLine}>
-          {keywords.map(
-            ({ nameEN, raw, code }) => (
-              <Link to={`/citations?keyword=${code}`} key={code}>{nameEN || raw}</Link>
-            ),
-          )}
+          {keywords.map(({ nameEN, raw, code }) => (
+            <Link to={`/citations?keyword=${code}`} key={code}>
+              {nameEN || raw}
+            </Link>
+          ))}
         </div>
       </div>
-
     </section>
   );
 };
+
+export default CitationListItem;

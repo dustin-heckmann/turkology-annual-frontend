@@ -1,18 +1,16 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
-    total: number | null
+  total: number | null;
 }
 
-export default ({ total }: Props) => {
+const SearchHeader = ({ total }: Props) => {
   if (total === null) return <></>;
   return (
     <>
-      <span>
-        {total}
-        {' '}
-entries found
-      </span>
+      <span>{total} entries found</span>
     </>
   );
 };
+
+export default SearchHeader;
