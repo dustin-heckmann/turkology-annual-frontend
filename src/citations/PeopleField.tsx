@@ -1,15 +1,15 @@
-import React from "react";
-import fieldStyles from "./CitationField.module.css";
-import { Person } from "./Person";
+import React from 'react'
+import fieldStyles from './CitationField.module.css'
+import { Person } from './Person'
 
 interface Props {
-  label: string;
-  people?: Person[];
+  label: string
+  people?: Person[]
 }
 
 const PeopleField = ({ label, people }: Props) => {
   if (!people || !people.length) {
-    return <></>;
+    return <></>
   }
   return (
     <div className={fieldStyles.field}>
@@ -20,7 +20,7 @@ const PeopleField = ({ label, people }: Props) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PeopleField;
+export default PeopleField

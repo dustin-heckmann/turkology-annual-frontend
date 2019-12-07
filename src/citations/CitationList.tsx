@@ -1,10 +1,10 @@
-import React from "react";
-import Citation from "./Citation";
-import CitationListItem from "./CitationListItem";
+import React from 'react'
+import Citation from './Citation'
+import CitationListItem from './CitationListItem'
 
 interface Props {
-  citations: Citation[];
-  offset?: number;
+  citations: Citation[]
+  offset?: number
 }
 
 const CitationList = ({ citations, offset }: Props) => (
@@ -17,6 +17,6 @@ const CitationList = ({ citations, offset }: Props) => (
       />
     ))}
   </>
-);
+)
 
-export default CitationList;
+export default CitationList

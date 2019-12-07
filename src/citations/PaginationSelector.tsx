@@ -1,12 +1,12 @@
-import ReactPaginate from "react-paginate";
-import React from "react";
+import ReactPaginate from 'react-paginate'
+import React from 'react'
 
-import styles from "./PaginationSelector.module.css";
+import styles from './PaginationSelector.module.css'
 
 interface Props {
-  pageCount: number;
-  currentPage: number;
-  onPageChange: Function;
+  pageCount: number
+  currentPage: number
+  onPageChange: Function
 }
 const PaginationSelector = ({
   pageCount,
@@ -14,8 +14,8 @@ const PaginationSelector = ({
   onPageChange
 }: Props) => {
   const handlePageClick = ({ selected }: { selected: number }) => {
-    onPageChange(selected);
-  };
+    onPageChange(selected)
+  }
 
   return (
     <ReactPaginate
@@ -39,7 +39,7 @@ const PaginationSelector = ({
       previousLabel="<"
       nextLabel=">"
     />
-  );
-};
+  )
+}
 
-export default PaginationSelector;
+export default PaginationSelector

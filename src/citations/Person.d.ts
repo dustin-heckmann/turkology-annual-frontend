@@ -1,6 +1,6 @@
 export interface Person {
-  first: string;
-  last: string;
-  middle: string;
-  raw: string;
+  first: string
+  last: string
+  middle: string
+  raw: string
 }

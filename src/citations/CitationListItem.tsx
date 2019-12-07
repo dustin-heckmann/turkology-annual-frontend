@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Citation from "./Citation";
-import styles from "./CitationListItem.module.css"; // Import css modules stylesheet as styles
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Citation from './Citation'
+import styles from './CitationListItem.module.css' // Import css modules stylesheet as styles
 
 interface Props {
-  citation: Citation;
-  matchNumber: number;
+  citation: Citation
+  matchNumber: number
 }
 
 const CitationListItem = (props: Props) => {
@@ -22,8 +22,8 @@ const CitationListItem = (props: Props) => {
       keywords
     },
     matchNumber
-  } = props;
-  const url = `/citations/${id}`;
+  } = props
+  const url = `/citations/${id}`
   return (
     <section className={styles.listItem}>
       <div className={styles.number}>
@@ -39,12 +39,12 @@ const CitationListItem = (props: Props) => {
                 .map(({ first, last, middle, raw }) =>
                   first && last ? `${last}, ${first}` : raw
                 )
-                .join(" | ")
-            : ""}
+                .join(' | ')
+            : ''}
         </div>
         <div className={styles.detailLine}>
           {location}
-          {location && datePublished ? ", " : ""}
+          {location && datePublished ? ', ' : ''}
           {datePublished}
         </div>
         <div className={styles.detailLine}>
@@ -60,7 +60,7 @@ const CitationListItem = (props: Props) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CitationListItem;
+export default CitationListItem

@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styles from "./Header.module.css";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styles from './Header.module.css'
 
 const Navigation = () => (
   <nav className={styles.navigation}>
@@ -10,6 +10,6 @@ const Navigation = () => (
       Export
     </Link>
   </nav>
-);
+)
 
-export default Navigation;
+export default Navigation

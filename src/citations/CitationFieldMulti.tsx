@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "./CitationField.module.css";
+import React from 'react'
+import styles from './CitationField.module.css'
 
 interface Props {
-  label: string;
-  values: string[];
+  label: string
+  values: string[]
 }
 
 const CitationFieldMulti = ({ label, values }: Props) => {
   if (!values || values.length === 0) {
-    return <></>;
+    return <></>
   }
   return (
     <div className={styles.field}>
@@ -19,7 +19,7 @@ const CitationFieldMulti = ({ label, values }: Props) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CitationFieldMulti;
+export default CitationFieldMulti

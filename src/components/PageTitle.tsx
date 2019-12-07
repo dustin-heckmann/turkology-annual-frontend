@@ -1,12 +1,12 @@
-import React from "react";
-import styles from "./PageTitle.module.css";
+import React from 'react'
+import styles from './PageTitle.module.css'
 
 interface Props {
-  title: string;
+  title: string
 }
 
 const PageTitle = ({ title }: Props) => (
   <div className={styles.pageTitle}>{title}</div>
-);
+)
 
-export default PageTitle;
+export default PageTitle

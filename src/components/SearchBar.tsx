@@ -1,5 +1,5 @@
-import React, { Component, FormEvent } from 'react';
-import styles from './SearchBar.module.css';
+import React, { Component, FormEvent } from 'react'
+import styles from './SearchBar.module.css'
 
 interface Props {
   query?: string
@@ -8,20 +8,20 @@ interface Props {
 
 export default class SearchBar extends Component<Props> {
   constructor(props: Props) {
-    super(props);
+    super(props)
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event: FormEvent) {
-    this.setState({ value: event.target });
+    this.setState({ value: event.target })
   }
 
   handleSubmit(event: FormEvent) {
     // this.setState({value: event.target.value});
-    if (this.props.onSubmit) this.props.onSubmit(this.props.query);
-    event.preventDefault();
+    if (this.props.onSubmit) this.props.onSubmit(this.props.query)
+    event.preventDefault()
   }
 
   render() {
@@ -36,6 +36,6 @@ export default class SearchBar extends Component<Props> {
         />
         <button type="submit" value="Submit" className={styles.button} />
       </form>
-    );
+    )
   }
 }
