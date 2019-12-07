@@ -1,4 +1,4 @@
-import Citation from "./Citation";
+import Citation from './Citation';
 
 interface Query {
   volume?: string;
@@ -16,24 +16,24 @@ interface ResultList {
 }
 
 export const getCitation = async (citationId: string): Promise<Citation> => {
-  //return testCitations.find(citation => citation.id === citationId);
+  // return testCitations.find(citation => citation.id === citationId);
   const response = await fetch(`/api/citations/${citationId}`);
-  if (!response.ok) throw new Error("Could not fetch citation");
+  if (!response.ok) throw new Error('Could not fetch citation');
   const body = await response.json();
   return body.result;
 };
 
 export async function findCitations(
   { volume, fullText, keyword }: Query,
-  page: number = 0
+  page: number = 0,
 ): Promise<ResultList> {
   const queryString = new URLSearchParams({
-    volume: volume || "",
-    q: fullText || "",
-    keyword: keyword || "",
-    page: page.toString()
+    volume: volume || '',
+    q: fullText || '',
+    keyword: keyword || '',
+    page: page.toString(),
   }).toString();
   const response = await fetch(`/api/citations?${queryString}`);
-  if (!response.ok) throw new Error("Could not fetch citations");
+  if (!response.ok) throw new Error('Could not fetch citations');
   return await response.json();
 }

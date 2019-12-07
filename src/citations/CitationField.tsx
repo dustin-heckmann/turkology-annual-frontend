@@ -1,5 +1,5 @@
-import React from "react";
-import styles from './CitationField.module.css'
+import React from 'react';
+import styles from './CitationField.module.css';
 
 interface Props {
   label: string;
@@ -8,9 +8,16 @@ interface Props {
 
 export default ({ label, value }: Props) => {
   if (!value) {
-    return <></>
+    return <></>;
   }
-  return <div className={styles.field}>
-    <label>{label}:</label> <span className={styles.value} >{value}</span>
-  </div>
-}
+  return (
+    <div className={styles.field}>
+      <label>
+        {label}
+:
+      </label>
+      {' '}
+      <span className={styles.value}>{value}</span>
+    </div>
+  );
+};

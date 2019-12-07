@@ -1,5 +1,5 @@
-import { Person } from "./Person";
-import { any } from "prop-types";
+import { any } from 'prop-types';
+import { Person } from './Person';
 
 export default interface Citation {
   id: string;

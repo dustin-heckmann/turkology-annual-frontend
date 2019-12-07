@@ -9,8 +9,8 @@ export interface Completeness {
 }
 
 export const fetchStatistics = async (): Promise<Statistics> => {
-  const response = await fetch(`/api/statistics`);
-  if (!response.ok) throw new Error("Could not fetch statistics");
+  const response = await fetch('/api/statistics');
+  if (!response.ok) throw new Error('Could not fetch statistics');
   const body = await response.json();
   return body;
 };

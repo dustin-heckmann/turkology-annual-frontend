@@ -1,6 +1,6 @@
-import React from "react";
-import fieldStyles from './CitationField.module.css'
-import { Person } from "./Person";
+import React from 'react';
+import fieldStyles from './CitationField.module.css';
+import { Person } from './Person';
 
 interface Props {
   label: string;
@@ -9,14 +9,19 @@ interface Props {
 
 export default ({ label, people }: Props) => {
   if (!people || !people.length) {
-    return <></>
+    return <></>;
   }
-  return (<div className={fieldStyles.field}>
-    <label>{label}:</label>
-    <div>
-      {people.map(person => (
-        <li>{person.raw}</li>
-      ))}
+  return (
+    <div className={fieldStyles.field}>
+      <label>
+        {label}
+:
+      </label>
+      <div>
+        {people.map((person) => (
+          <li>{person.raw}</li>
+        ))}
+      </div>
     </div>
-  </div>)
-}
+  );
+};
