@@ -1,18 +1,17 @@
 .listItem {
   border-bottom: 1px solid gray;
-  padding: 5px;
-  padding-left: 45px;
-  margin: 10px 0;
-  position: relative;
+  margin: 20px 0;
   min-height: 100px;
+  display: flex;
+  flex-wrap: nowrap;
 }
-
-.listItem a {
+.link {
   color: black;
 }
-
-.listItem a:hover {
-  color: #5a7d1c;
+.listItem:hover {
+  background-color: #f6f6f6;
+  animation-name: example;
+  animation-duration: 0.2s;
 }
 
 .title {
@@ -21,17 +20,11 @@
 }
 
 .number {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-
   vertical-align: top;
   background-color: #f6f6f6;
-  width: 35px;
-  font-size: 1em;
-  padding-top: 5px;
   text-align: center;
+  flex-shrink: 0;
+  flex-basis: 50px;
 }
 
 .number a {
@@ -47,4 +40,15 @@
 
 .keywordsLine a {
   margin-right: 30px;
+}
+
+.content {
+  padding-left: 10px;
+}
+
+.listItem .content a {
+  color: black !important;
+}
+
+.title a:visited {
 }

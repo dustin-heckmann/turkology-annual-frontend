@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Citation from './Citation'
-import styles from './CitationListItem.module.css' // Import css modules stylesheet as styles
+import styles from './CitationListItem.module.css'
 
 interface Props {
   citation: Citation
@@ -25,37 +25,35 @@ const CitationListItem = (props: Props) => {
   } = props
   const url = `/citations/${id}`
   return (
-    <section className={styles.listItem}>
-      <div className={styles.number}>
-        <Link to={url}>{matchNumber}</Link>
-      </div>
-      <div>
-        <summary className={styles.title}>
-          <Link to={url}>{title || rawText}</Link>
-        </summary>
-        {authors
-          ? authors
-              .map(({ first, last, middle, raw }) =>
-                first && last ? `${last}, ${first}` : raw
-              )
-              .join(' | ')
-          : ''}
-        <div>
-          {location}
-          {location && datePublished ? ', ' : ''}
-          {datePublished}
+    <Link to={url} className={styles.link}>
+      <section className={styles.listItem}>
+        <div className={styles.number}>{matchNumber}</div>
+        <div className={styles.content}>
+          <summary className={styles.title}>{title || rawText}</summary>
+          {authors
+            ? authors
+                .map(({ first, last, middle, raw }) =>
+                  first && last ? `${last}, ${first}` : raw
+                )
+                .join(' | ')
+            : ''}
+          <div>
+            {location}
+            {location && datePublished ? ', ' : ''}
+            {datePublished}
+          </div>
+          TA
+          {volume},{number}
+          <div className={styles.keywordsLine}>
+            {keywords.map(({ nameEN, raw, code }) => (
+              <Link to={`/citations?keyword=${code}`} key={code}>
+                {nameEN || raw}
+              </Link>
+            ))}
+          </div>
         </div>
-        TA
-        {volume},{number}
-        <div className={styles.keywordsLine}>
-          {keywords.map(({ nameEN, raw, code }) => (
-            <Link to={`/citations?keyword=${code}`} key={code}>
-              {nameEN || raw}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </Link>
   )
 }
 

@@ -1,5 +1,5 @@
 import { History } from 'history'
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, KeyboardEvent } from 'react'
 import { useHistory } from 'react-router'
 import styles from './SearchBar.module.css'
 

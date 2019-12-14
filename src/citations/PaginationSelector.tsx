@@ -20,12 +20,12 @@ const PaginationSelector = ({
     <ReactPaginate
       pageCount={pageCount}
       initialPage={currentPage}
-      pageRangeDisplayed={5}
+      pageRangeDisplayed={6}
       marginPagesDisplayed={3}
       onPageChange={handlePageClick}
       disableInitialCallback
       containerClassName={styles.container}
-      activeClassName={styles.activeLink}
+      activeClassName={styles.active}
       activeLinkClassName={styles.activeLink}
       pageLinkClassName={styles.pageLink}
       previousLinkClassName={styles.previousLink}
