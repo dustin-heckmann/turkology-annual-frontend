@@ -1,105 +1,77 @@
+import queryString from 'query-string'
 import React from 'react'
-import { findCitations } from './citationService'
-import CitationList from './CitationList'
-import Citation from './Citation'
-import SearchHeader from './SearchHeader'
-import ErrorMessage from '../components/ErrorMessage'
-import PaginationSelector from './PaginationSelector'
+import { useHistory, useLocation } from 'react-router'
+import { useAsync } from 'react-use'
+import CitationSearchResult from '../CitationSearchResult'
+import { findCitations, ResultList } from './citationService'
 
-interface Props {
-  location: {
-    search: string
-  }
+interface SearchFormValues {
+  volume?: string
+  fullText?: string
+  keyword?: string
+}
+const parseQueryParameters = (search: string) => {
+  const params = queryString.parse(search)
+  const page = parseInt(params.page as string) || 0
+  const query = (params.query as string) ?? ''
+  const volume = (params.volume as string) ?? ''
+  const keyword = (params.keyword as string) ?? ''
+
+  return { page, query, volume, keyword }
 }
 
-interface State {
-  query: {
-    volume?: string
-    fullText?: string
-    keyword?: string
-  }
-  total: number | null
-  citations: Citation[]
-  error: boolean
-  pagesTotal: number
-  offset: number
-  currentPage: number
-}
+const CitationSearch = () => {
+  const { search } = useLocation()
+  const history = useHistory()
+  const queryParameters = parseQueryParameters(search)
 
-interface Params {
-  volume: string
-}
+  const handleSearch = (values: Record<string, any>) => {
+    const params = new URLSearchParams({
+      ...queryParameters,
+      page: queryParameters.page.toString(),
+      ...values
+    })
 
-export default class CitationSearch extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      query: {},
-      citations: [],
-      total: null,
-      currentPage: 0,
-      pagesTotal: 0,
-      offset: 0,
-      error: false
-    }
+    history.push({
+      pathname: '/citations',
+      search: `?${params}`
+    })
   }
 
-  async componentDidMount() {
-    this.fetchResults()
-  }
-
-  async componentDidUpdate(prevProps: Props, prevState: State) {
-    if (prevProps.location.search !== this.props.location.search) {
-      this.fetchResults()
-    }
-  }
-
-  async readURLParameters() {
-    const params = new URLSearchParams(this.props.location.search)
-    const volume = params.get('volume') || undefined
-    const keyword = params.get('keyword') || undefined
-    const fullText = params.get('q') || undefined
-    await this.setState({ query: { volume, fullText, keyword } })
-  }
-
-  async fetchResults(page: number = 0) {
-    await this.readURLParameters()
-    try {
-      const response = await findCitations(this.state.query, page)
-      this.setState({
-        citations: response.result,
-        currentPage: response.currentPage,
-        pagesTotal: response.pagesTotal,
-        offset: response.offset,
-        total: response.total
-      })
-    } catch (e) {
-      this.setState({ error: true })
-    }
-  }
-
-  render() {
-    const { currentPage, pagesTotal, total } = this.state
-    const paginationComponent = (
-      <PaginationSelector
-        pageCount={pagesTotal}
-        currentPage={currentPage}
-        onPageChange={(newPage: number) => {
-          this.fetchResults(newPage)
-        }}
-      />
+  const state = useAsync(async (): Promise<ResultList> => {
+    return await findCitations(
+      {
+        fullText: queryParameters.query,
+        keyword: queryParameters.keyword,
+        volume: queryParameters.volume
+      },
+      queryParameters.page
     )
-    return this.state.error ? (
-      <ErrorMessage />
-    ) : (
+  }, [search])
+
+  if (state.error) console.error(state.error.message)
+
+  return (
+    <section>
       <>
-        {paginationComponent}
-        <SearchHeader total={total} />
-        <CitationList
-          citations={this.state.citations}
-          offset={this.state.offset}
-        />
+        {state.loading ? (
+          <>Loading</>
+        ) : !state.value ? (
+          <> </>
+        ) : (
+          <CitationSearchResult
+            citations={state.value.result}
+            page={queryParameters.page}
+            query={queryParameters.query}
+            total={state.value.total}
+            pagesTotal={state.value.pagesTotal}
+            offset={state.value.offset}
+            handleUpdate={handleSearch}
+          />
+        )}
       </>
-    )
-  }
+    </section>
+  )
 }
+
+export default CitationSearch

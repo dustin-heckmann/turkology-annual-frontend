@@ -1,4 +1,6 @@
-import React, { Component, FormEvent } from 'react'
+import { History } from 'history'
+import React, { ChangeEvent } from 'react'
+import { useHistory } from 'react-router'
 import styles from './SearchBar.module.css'
 
 interface Props {
@@ -6,35 +8,34 @@ interface Props {
   onSubmit?: Function
 }
 
-export default class SearchBar extends Component<Props> {
-  constructor(props: Props) {
-    super(props)
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleChange(event: FormEvent) {
-    this.setState({ value: event.target })
-  }
-
-  handleSubmit(event: FormEvent) {
-    if (this.props.onSubmit) this.props.onSubmit(this.props.query)
-    event.preventDefault()
-  }
-
-  render() {
-    return (
-      <form name="quicksearch" className={styles.searchBar} action="/citations">
-        <input
-          className={styles.input}
-          type="search"
-          name="q"
-          defaultValue={this.props.query}
-          placeholder="Search..."
-        />
-        <button type="submit" value="Submit" className={styles.button} />
-      </form>
-    )
-  }
+const triggerSearch = (query: string, history: History) => {
+  history.push(`/citations?query=${query}`)
 }
+
+let timeout: number | undefined
+const executeAfterTimeout = (func: Function) => {
+  clearTimeout(timeout)
+  timeout = setTimeout(func, 500)
+}
+
+const SearchBar = ({ query }: Props) => {
+  const history = useHistory()
+  return (
+    <div className={styles.searchBar}>
+      <input
+        className={styles.input}
+        type="search"
+        name="q"
+        defaultValue={query}
+        placeholder="Search..."
+        onChange={(event: ChangeEvent<HTMLInputElement>) => {
+          const query = event.target.value
+          executeAfterTimeout(() => {
+            triggerSearch(query, history)
+          })
+        }}
+      />
+    </div>
+  )
+}
+export default SearchBar

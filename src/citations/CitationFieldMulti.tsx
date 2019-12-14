@@ -3,7 +3,7 @@ import styles from './CitationFieldMulti.module.css'
 
 interface Props {
   label: string
-  values: string[]
+  values?: string[]
 }
 
 const CitationFieldMulti = ({ label, values }: Props) => {

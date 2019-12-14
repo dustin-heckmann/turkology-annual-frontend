@@ -1,25 +1,25 @@
-import React, { Component } from "react";
-import "normalize.css";
-import "./App.css";
-import Header from "./components/Header";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Citations from "./citations/Citations";
-import "./index.css";
-import StatisticsPage from "./statistics/StatisticsPage";
+import React, { Component } from 'react'
+import 'normalize.css'
+import './App.css'
+import Header from './components/Header'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import Citations from './citations/Citations'
+import './index.css'
+import StatisticsPage from './statistics/StatisticsPage'
 
 export default class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       citations: [],
-      query: ""
-    };
+      query: ''
+    }
   }
 
   onSearchValueChange(query) {
     this.setState({ query: query }, () => {
-      this.getData();
-    });
+      this.getData()
+    })
   }
 
   render() {
@@ -34,6 +34,6 @@ export default class App extends Component {
           </main>
         </Router>
       </div>
-    );
+    )
   }
 }

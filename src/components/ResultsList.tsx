@@ -4,6 +4,7 @@ import Citation from '../citations/Citation'
 
 interface Props {
   citations: Citation[]
+  offset: number
 }
 
 const ResultsList = ({ citations }: Props) => {

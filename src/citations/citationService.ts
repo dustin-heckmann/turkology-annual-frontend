@@ -7,12 +7,12 @@ interface Query {
   keyword?: string
 }
 
-interface ResultList {
+export interface ResultList {
   total: number
   pagesTotal: number
   currentPage: number
-  offset: number
   result: Citation[]
+  offset: number
 }
 
 export const getCitation = async (citationId: string): Promise<Citation> => {

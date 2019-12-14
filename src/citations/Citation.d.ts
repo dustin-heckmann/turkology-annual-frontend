@@ -13,16 +13,16 @@ export default interface Citation {
   datePublished?: string | number | Record
   series?: string
   numberOfVolumes?: string | number
-  numberOfPages: any
-  material: any[]
-  amendments: string[]
-  type: string
-  reviews: string[] = []
+  numberOfPages?: any
+  material?: any[]
+  amendments?: string[]
+  type?: string
+  reviews?: string[] = []
   keywords: {
     code: string
     raw: string
     nameDE: string
     nameEN: string
   }[]
-  comment: string
+  comment?: string
 }
