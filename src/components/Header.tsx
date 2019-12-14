@@ -4,6 +4,7 @@ import styles from './Header.module.css'
 import logo from '../img/logo_cluster.png'
 import PageTitle from './PageTitle'
 import Navigation from './Navigation'
+import { Link } from 'react-router-dom'
 
 interface Props {
   location: {
@@ -30,7 +31,7 @@ export default class Header extends Component<Props> {
             alt="Cluster of Excellence - Asia and Europe in a Global Context"
           />
           <div className={styles.appName}>
-            <span>Turkology Annual Online</span>
+            <Link to="/citations">Turkology Annual Online</Link>
           </div>
           <div className={styles.searchBar}>
             <SearchBar query={this.getQuery()} />

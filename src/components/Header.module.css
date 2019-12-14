@@ -20,6 +20,13 @@
   font-family: 'Brawler', serif;
 }
 
+.appName a {
+  color: white;
+}
+.appName a:hover {
+  color: rgb(216, 216, 216);
+}
+
 .clusterLogo {
   opacity: 0.5;
   display: inline-block;
