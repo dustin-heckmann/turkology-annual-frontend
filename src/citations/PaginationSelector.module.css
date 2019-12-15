@@ -53,12 +53,6 @@
   background-color: #d1d0d0;
 }
 
-.previous {
-}
-
-.next {
-}
-
 .activeLink,
 .activeLink:hover {
   background-color: #9bc057;
