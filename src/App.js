@@ -1,40 +1,26 @@
-import React, { Component } from 'react'
+import 'delayed-scroll-restoration-polyfill'
 import 'normalize.css'
+import React from 'react'
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 import './App.css'
-import Header from './components/Header'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Citations from './citations/Citations'
+import Header from './components/Header'
 import './index.css'
 import StatisticsPage from './statistics/StatisticsPage'
-import 'delayed-scroll-restoration-polyfill'
 
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      citations: [],
-      query: ''
-    }
-  }
-
-  onSearchValueChange(query) {
-    this.setState({ query: query }, () => {
-      this.getData()
-    })
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <Route component={Header} />
-          <main>
-            <Route path="/" exact render={() => <Redirect to="/citations" />} />
-            <Route path="/citations" component={Citations} />
-            <Route path="/statistics" component={StatisticsPage} />
-          </main>
-        </Router>
-      </div>
-    )
-  }
+const App = () => {
+  return (
+    <div className="App">
+      <Router>
+        <Route component={Header} />
+        <main>
+          <Route path="/" exact render={() => <Redirect to="/citations" />} />
+          <Route path="/citations" component={Citations} />
+          <Route path="/statistics" component={StatisticsPage} />
+        </main>
+      </Router>
+    </div>
+  )
 }
+
+export default App
