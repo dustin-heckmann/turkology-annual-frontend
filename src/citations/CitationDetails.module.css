@@ -8,3 +8,7 @@
 .citationDetails label {
   grid-area: labels;
 }
+
+.keywords li {
+  font-variant: small-caps;
+}

@@ -62,6 +62,14 @@ export default class CitationDetails extends Component<Props, State> {
             <DateField label="Publication date" date={citation.datePublished} />
             <CitationFieldMulti label="Reviews" values={citation.reviews} />
             <CitationField label="Comment" value={citation.comment} />
+            <span className={styles.keywords}>
+              <CitationFieldMulti
+                label="Keywords"
+                values={citation.keywords.map(
+                  keyword => `${keyword.code}. ${keyword.nameEN}`
+                )}
+              />
+            </span>
             <CitationFieldMulti
               label="Amendments"
               values={citation.amendments}
