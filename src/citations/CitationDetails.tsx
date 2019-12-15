@@ -6,6 +6,7 @@ import PeopleField from './PeopleField'
 import DateField from './DateField'
 import styles from './CitationDetails.module.css'
 import CitationFieldMulti from './CitationFieldMulti'
+import { startCase, toLower } from 'lodash'
 
 interface Props {
   match: {
@@ -35,7 +36,10 @@ export default class CitationDetails extends Component<Props, State> {
               label="TA entry"
               value={`Volume ${citation.volume}, No. ${citation.number}`}
             />
-            <CitationField label="Publication type" value={citation.type} />
+            <CitationField
+              label="Publication type"
+              value={startCase(toLower(citation.type))}
+            />
             <CitationField label="Title" value={citation.title} />
             <PeopleField label="Authors" people={citation.authors} />
             <PeopleField label="Editors" people={citation.editors} />
