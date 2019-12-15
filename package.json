@@ -9,6 +9,7 @@
     "@types/react-dom": "^16.9.4",
     "@types/react-paginate": "^6.2.1",
     "@types/user-event": "^4.1.0",
+    "delayed-scroll-restoration-polyfill": "^0.1.1",
     "http-proxy-middleware": "^0.20.0",
     "normalize.css": "^8.0.1",
     "query-string": "^6.9.0",
