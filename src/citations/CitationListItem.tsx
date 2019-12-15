@@ -29,7 +29,7 @@ const CitationListItem = (props: Props) => {
       <section className={styles.listItem}>
         <div className={styles.number}>{matchNumber}</div>
         <div className={styles.content}>
-          <summary className={styles.title}>{title || rawText}</summary>
+          <span className={styles.title}>{title || rawText}</span>
           {authors
             ? authors
                 .map(({ first, last, middle, raw }) =>
