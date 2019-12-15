@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 
 import CitationDetails from './CitationDetails'
 import CitationSearch from './CitationSearch'
+import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
 
 const Citations = () => (
   <>

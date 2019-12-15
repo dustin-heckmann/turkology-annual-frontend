@@ -7,6 +7,7 @@ import DateField from './DateField'
 import styles from './CitationDetails.module.css'
 import CitationFieldMulti from './CitationFieldMulti'
 import { startCase, toLower } from 'lodash'
+import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
 
 interface Props {
   match: {
@@ -31,6 +32,9 @@ export default class CitationDetails extends Component<Props, State> {
     if (citation) {
       return (
         <>
+          <BreadcrumbsItem to={`/citations/${citation.id}`}>
+            TA {citation.volume}.{citation.number}
+          </BreadcrumbsItem>
           <section className={styles.citationDetails}>
             <CitationField
               label="TA entry"

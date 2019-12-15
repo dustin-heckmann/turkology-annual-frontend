@@ -7,9 +7,10 @@ import Citations from './citations/Citations'
 import Header from './components/Header'
 import './index.css'
 import StatisticsPage from './statistics/StatisticsPage'
+import { ThroughProvider } from 'react-through'
 
-const App = () => {
-  return (
+const App = () => (
+  <ThroughProvider>
     <div className="App">
       <Router>
         <Route component={Header} />
@@ -20,7 +21,7 @@ const App = () => {
         </main>
       </Router>
     </div>
-  )
-}
+  </ThroughProvider>
+)
 
 export default App
