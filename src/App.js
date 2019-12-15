@@ -8,6 +8,7 @@ import Header from './components/Header'
 import './index.css'
 import StatisticsPage from './statistics/StatisticsPage'
 import { ThroughProvider } from 'react-through'
+import About from './About'
 
 const App = () => (
   <ThroughProvider>
@@ -18,6 +19,7 @@ const App = () => (
           <Route path="/" exact render={() => <Redirect to="/citations" />} />
           <Route path="/citations" component={Citations} />
           <Route path="/statistics" component={StatisticsPage} />
+          <Route path="/about" component={About} />
         </main>
       </Router>
     </div>

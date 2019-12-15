@@ -15,11 +15,17 @@ const Header = () => {
       <Navigation />
 
       <header className={styles.header}>
-        <img
-          className={styles.clusterLogo}
-          src={logo}
-          alt="Cluster of Excellence - Asia and Europe in a Global Context"
-        />
+        <a
+          href="https://www.asia-europe.uni-heidelberg.de/en/cluster-asia-and-europe.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            className={styles.clusterLogo}
+            src={logo}
+            alt="Cluster of Excellence - Asia and Europe in a Global Context"
+          />
+        </a>
         <div className={styles.appName}>
           <Link to="/citations">Turkology Annual Online</Link>
         </div>
