@@ -4,6 +4,10 @@
   margin-bottom: 15px;
 }
 
+.field ul {
+  padding-left: 20px;
+}
+
 .field label {
   font-weight: bold;
   min-width: 180px;

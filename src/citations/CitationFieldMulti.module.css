@@ -10,3 +10,7 @@
   text-align: right;
   margin-right: 30px;
 }
+
+.field ul {
+  padding-left: 20px;
+}

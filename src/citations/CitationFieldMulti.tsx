@@ -13,9 +13,11 @@ const CitationFieldMulti = ({ label, values }: Props) => {
   return (
     <div className={styles.field}>
       <label>{label}:</label>
-      {values.map((value, index) => (
-        <li key={index}>{value.toString()}</li>
-      ))}
+      <ul>
+        {values.map((value, index) => (
+          <li key={index}>{value.toString()}</li>
+        ))}
+      </ul>
     </div>
   )
 }

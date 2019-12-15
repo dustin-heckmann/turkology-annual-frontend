@@ -15,9 +15,11 @@ const PeopleField = ({ label, people }: Props) => {
     <div className={fieldStyles.field}>
       <label>{label}:</label>
       <div>
-        {people.map((person, index) => (
-          <li key={index}>{person.raw}</li>
-        ))}
+        <ul>
+          {people.map((person, index) => (
+            <li key={index}>{person.raw}</li>
+          ))}
+        </ul>
       </div>
     </div>
   )
