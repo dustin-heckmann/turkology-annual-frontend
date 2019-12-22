@@ -16,7 +16,7 @@ const ResultsListItem = ({ citation }: Props) => (
 
           <td className="entry-body">
             <span className="title">
-              <a href="/citations/{ citation.id }?sess=" title="">
+              <a href="/citations/{ citation.id }" title="">
                 {citation.title || citation.rawText}
               </a>
             </span>
@@ -32,7 +32,7 @@ const ResultsListItem = ({ citation }: Props) => (
                 <span className="field-name">
                   Keywords:{' '}
                   {citation.keywords
-                    .map(keyword => keyword.nameDE || keyword.raw)
+                    ?.map(keyword => keyword.nameDE || keyword.raw)
                     .join(' | ')}
                 </span>
               </span>

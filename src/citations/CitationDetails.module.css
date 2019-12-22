@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  padding: 0 20px;
 }
 
 .citationDetails label {
@@ -11,4 +10,23 @@
 
 .keywords li {
   font-variant: small-caps;
+}
+
+@media (min-width: 480px) {
+  .citationDetails {
+    padding: 0;
+  }
+}
+@media (min-width: 768px) {
+  .citationDetails {
+    padding: 10px 5%;
+  }
+}
+
+@media (min-width: 992px) {
+  .citationDetails {
+    padding: 10px 10%;
+  }
+}
+@media (min-width: 1200px) {
 }

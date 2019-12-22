@@ -69,7 +69,7 @@ export default class CitationDetails extends Component<Props, State> {
             <span className={styles.keywords}>
               <CitationFieldMulti
                 label="Keywords"
-                values={citation.keywords.map(
+                values={citation.keywords?.map(
                   keyword => `${keyword.code}. ${keyword.nameEN}`
                 )}
               />

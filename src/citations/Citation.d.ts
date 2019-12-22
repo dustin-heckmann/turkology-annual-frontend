@@ -18,7 +18,7 @@ export default interface Citation {
   amendments?: string[]
   type?: string
   reviews?: string[] = []
-  keywords: {
+  keywords?: {
     code: string
     raw: string
     nameDE: string

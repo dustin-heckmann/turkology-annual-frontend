@@ -45,7 +45,7 @@ const CitationListItem = (props: Props) => {
           TA
           {volume},{number}
           <div className={styles.keywordsLine}>
-            {keywords.map(({ nameEN, raw, code }) => (
+            {keywords?.map(({ nameEN, raw, code }) => (
               <Link to={`/citations?keyword=${code}`} key={code}>
                 {nameEN || raw}
               </Link>
