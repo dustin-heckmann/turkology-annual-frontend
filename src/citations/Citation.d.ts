@@ -22,6 +22,7 @@ export default interface Citation {
   keywords?: Keyword[]
   comments?: string[]
   publishedIn?: PublishedIn
+  taReferences?: { number: number; volume: string }[]
 }
 
 interface Keyword {

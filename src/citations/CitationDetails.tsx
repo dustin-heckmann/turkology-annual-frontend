@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
-import { getCitation } from './citationService'
-import Citation from './Citation'
-import CitationField from './CitationField'
-import PeopleField from './PeopleField'
-import DateField from './DateField'
-import styles from './CitationDetails.module.css'
-import CitationFieldMulti from './CitationFieldMulti'
 import { startCase, toLower } from 'lodash'
+import React, { Component } from 'react'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
-import PublishedInField from './PublishedInField'
+import { RepetitionHeader } from './RepetitionHeader'
+import Citation from './Citation'
+import styles from './CitationDetails.module.css'
+import CitationField from './CitationField'
+import CitationFieldMulti from './CitationFieldMulti'
+import { getCitation } from './citationService'
+import DateField from './DateField'
 import { KeywordField } from './KeywordField'
+import PeopleField from './PeopleField'
+import PublishedInField from './PublishedInField'
 
 interface Props {
   match: {
@@ -38,6 +39,12 @@ export default class CitationDetails extends Component<Props, State> {
             TA {citation.volume}.{citation.number}
           </BreadcrumbsItem>
           <section className={styles.citationDetails}>
+            {citation.taReferences?.[0]?.volume && (
+              <RepetitionHeader
+                volume={citation.taReferences[0].volume}
+                number={citation.taReferences[0].number}
+              />
+            )}
             <CitationField label="TA entry">
               Volume {citation.volume}, No. {citation.number}
             </CitationField>
