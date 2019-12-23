@@ -1,18 +1,19 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styles from './CitationField.module.css'
 
 interface Props {
   label: string
-  value?: string | number | null
+  children: ReactNode
 }
 
-const CitationField = ({ label, value }: Props) => {
-  if (!value) {
+const CitationField = ({ label, children }: Props) => {
+  if (!children) {
     return <></>
   }
   return (
     <div className={styles.field}>
-      <label>{label}:</label> {value}
+      <label>{label}:</label>
+      {children}
     </div>
   )
 }

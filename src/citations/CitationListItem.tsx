@@ -40,7 +40,7 @@ const CitationListItem = (props: Props) => {
           <div>
             {location}
             {location && datePublished ? ', ' : ''}
-            {datePublished}
+            {datePublished?.year}
           </div>
           TA
           {volume},{number}

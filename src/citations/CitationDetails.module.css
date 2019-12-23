@@ -12,6 +12,15 @@
   font-variant: small-caps;
 }
 
+.rawText {
+  font-family: monospace;
+  padding: 10px;
+  border: 2px solid black;
+  background-color: white;
+  font-size: 1.4rem;
+  margin-top: 3rem;
+}
+
 @media (min-width: 480px) {
   .citationDetails {
     padding: 0;

@@ -8,6 +8,8 @@ import styles from './CitationDetails.module.css'
 import CitationFieldMulti from './CitationFieldMulti'
 import { startCase, toLower } from 'lodash'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
+import PublishedInField from './PublishedInField'
+import { KeywordField } from './KeywordField'
 
 interface Props {
   match: {
@@ -36,49 +38,61 @@ export default class CitationDetails extends Component<Props, State> {
             TA {citation.volume}.{citation.number}
           </BreadcrumbsItem>
           <section className={styles.citationDetails}>
-            <CitationField
-              label="TA entry"
-              value={`Volume ${citation.volume}, No. ${citation.number}`}
-            />
-            <CitationField
-              label="Publication type"
-              value={startCase(toLower(citation.type))}
-            />
-            <CitationField label="Title" value={citation.title} />
+            <CitationField label="TA entry">
+              Volume {citation.volume}, No. {citation.number}
+            </CitationField>
+
+            <CitationField label="Publication type">
+              {startCase(toLower(citation.type))}
+            </CitationField>
+            <CitationField label="Title">{citation.title}</CitationField>
+
             <PeopleField label="Authors" people={citation.authors} />
+
+            <PublishedInField
+              label="Published in"
+              value={citation.publishedIn}
+            />
+
             <PeopleField label="Editors" people={citation.editors} />
-            <CitationField
-              label="Number of pages"
-              value={citation.numberOfPages}
-            />
-            <CitationFieldMulti
-              label="Material"
-              values={
-                citation.material ? citation.material.map(mat => mat.raw) : []
-              }
-            />
-            <CitationField
-              label="Number of volumes"
-              value={citation.numberOfVolumes}
-            />
-            <CitationField label="Series" value={citation.series} />
-            <CitationField label="Location" value={citation.location} />
-            <DateField label="Publication date" date={citation.datePublished} />
+
+            <CitationField label="Number of pages">
+              {citation.numberOfPages}
+            </CitationField>
+
+            <CitationFieldMulti label="Material" values={citation.material} />
+
+            <CitationField label="Number of volumes">
+              {citation.numberOfVolumes}
+            </CitationField>
+
+            <CitationField label="Series">{citation.series}</CitationField>
+
+            <CitationField label="Location">{citation.location}</CitationField>
+
+            <CitationField label="Publication date">
+              {citation.datePublished?.year}
+            </CitationField>
+
+            <DateField label="Start date" value={citation.date?.start} />
+
+            <DateField label="End date" value={citation.date?.end} />
+
             <CitationFieldMulti label="Reviews" values={citation.reviews} />
-            <CitationField label="Comment" value={citation.comment} />
-            <span className={styles.keywords}>
-              <CitationFieldMulti
-                label="Keywords"
-                values={citation.keywords?.map(
-                  keyword => `${keyword.code}. ${keyword.nameEN}`
-                )}
-              />
-            </span>
+
+            <CitationFieldMulti label="Comments" values={citation.comments} />
+            <CitationField label="Keywords">
+              <span className={styles.keywords}>
+                {citation.keywords?.map(keyword => (
+                  <KeywordField keyword={keyword} />
+                ))}
+              </span>
+            </CitationField>
             <CitationFieldMulti
               label="Amendments"
               values={citation.amendments}
             />
-            <CitationField label="Raw string" value={citation.rawText} />
+            <div className={styles.rawText}>{citation.rawText}</div>
           </section>
         </>
       )
