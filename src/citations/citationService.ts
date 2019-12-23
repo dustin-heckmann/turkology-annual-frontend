@@ -2,6 +2,7 @@ import Citation from './Citation'
 
 interface Query {
   volume?: string
+  number?: string
   skip?: number
   fullText?: string
   keyword?: string
@@ -24,11 +25,12 @@ export const getCitation = async (citationId: string): Promise<Citation> => {
 }
 
 export async function findCitations(
-  { volume, fullText, keyword }: Query,
+  { volume, number, fullText, keyword }: Query,
   page: number = 0
 ): Promise<ResultList> {
   const queryString = new URLSearchParams({
-    volume: volume || '',
+    volume: volume ?? '',
+    number: number ?? '',
     q: fullText || '',
     keyword: keyword || '',
     page: page.toString()
