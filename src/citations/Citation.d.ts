@@ -6,8 +6,8 @@ export default interface Citation {
   volume: string
   number: number
   title?: string
-  authors: Person[]
-  editors: Person[]
+  authors?: Person[]
+  editors?: Person[]
   rawText: string
   location?: string
   datePublished?: { year?: number }
@@ -15,12 +15,12 @@ export default interface Citation {
   series?: string
   numberOfVolumes?: string | number
   numberOfPages?: any
-  material: any[]
-  amendments: string[]
+  material?: any[]
+  amendments?: string[]
   type?: string
-  reviews: string[] = []
-  keywords: Keyword[]
-  comments: string[]
+  reviews?: string[] = []
+  keywords?: Keyword[]
+  comments?: string[]
   publishedIn?: PublishedIn
 }
 
