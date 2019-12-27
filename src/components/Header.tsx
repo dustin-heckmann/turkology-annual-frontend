@@ -5,7 +5,6 @@ import styles from './Header.module.css'
 import Navigation from './Navigation'
 import PageTitle from './PageTitle'
 import SearchBar from './SearchBar'
-import { Breadcrumbs } from 'react-breadcrumbs-dynamic'
 
 const Header = () => {
   const { search } = useLocation()

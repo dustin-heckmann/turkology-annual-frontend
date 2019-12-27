@@ -1,9 +1,8 @@
 import React from 'react'
 import Citation from './citations/Citation'
-import PaginationSelector from './citations/PaginationSelector'
 import CitationList from './citations/CitationList'
+import PaginationSelector from './citations/PaginationSelector'
 import SearchHeader from './citations/SearchHeader'
-import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
 
 interface Props {
   page: number
