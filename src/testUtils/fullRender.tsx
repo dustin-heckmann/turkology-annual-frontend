@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react'
-
-import { Router } from 'react-router-dom'
-import { createMemoryHistory, MemoryHistory } from 'history'
 import { render } from '@testing-library/react'
+import { createMemoryHistory, MemoryHistory } from 'history'
+import React, { ReactNode } from 'react'
+import { Router } from 'react-router-dom'
+import { ThroughProvider } from 'react-through'
+
 const fullRender = (
   component: ReactNode,
   {
@@ -12,7 +13,11 @@ const fullRender = (
 ) => {
   return {
     history,
-    ...render(<Router history={history}>{component}</Router>)
+    ...render(
+      <ThroughProvider>
+        <Router history={history}>{component}</Router>
+      </ThroughProvider>
+    )
   }
 }
 
