@@ -3,7 +3,7 @@ import { Person } from './Person'
 
 export default interface Citation {
   id: string
-  volume: string
+  volume: number
   number: number
   title?: string
   authors?: Person[]
@@ -22,7 +22,7 @@ export default interface Citation {
   keywords?: Keyword[]
   comments?: string[]
   publishedIn?: PublishedIn
-  taReferences?: { number: number; volume: string }[]
+  taReferences?: { number: number; volume: number }[]
 }
 
 interface Keyword {

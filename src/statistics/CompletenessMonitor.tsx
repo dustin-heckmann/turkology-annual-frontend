@@ -8,14 +8,18 @@ interface Props {
 
 const CompletenessMonitor = ({ completeness }: Props) => {
   const numericRows = Object.entries(completeness).map((entry, number) => (
-    <CompletenessEntry completeness={entry[1]} volume={entry[0]} key={number} />
+    <CompletenessEntry
+      completeness={entry[1]}
+      volume={parseInt(entry[0])}
+      key={number}
+    />
   ))
   const missingNumbersRows = Object.entries(
     completeness
   ).map((entry, number) => (
     <MissingCitationsEntry
       completeness={entry[1]}
-      volume={entry[0]}
+      volume={parseInt(entry[0])}
       key={number}
     />
   ))
@@ -47,7 +51,7 @@ const CompletenessEntry = ({
   volume
 }: {
   completeness: Completeness
-  volume: string
+  volume: number
 }) => (
   <div
     className={`${styles.row} ${
@@ -76,7 +80,7 @@ const MissingCitationsEntry = ({
   volume
 }: {
   completeness: Completeness
-  volume: string
+  volume: number
 }) =>
   completeness.actual === completeness.expected ? null : (
     <div>

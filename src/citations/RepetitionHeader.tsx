@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './RepetitionHeader.module.css'
 
 interface Props {
-  volume: string
+  volume: number
   number: number
 }
 
