@@ -16,7 +16,7 @@ const App = () => (
       <Router>
         <Route component={Header} />
         <main>
-          <Route path="/" exact render={() => <Redirect to="/citations" />} />
+          <Route path="/" exact render={() => <Redirect to="/about" />} />
           <Route path="/citations" component={Citations} />
           <Route path="/statistics" component={StatisticsPage} />
           <Route path="/about" component={About} />
