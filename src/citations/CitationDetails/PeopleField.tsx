@@ -1,6 +1,6 @@
 import React from 'react'
 import fieldStyles from './CitationField.module.css'
-import { Person } from './Person'
+import { Person } from '../Person'
 
 interface Props {
   label: string

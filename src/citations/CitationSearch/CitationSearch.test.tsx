@@ -4,10 +4,10 @@ import userEvent from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
 import 'jest'
 import React from 'react'
-import CitationSearch from './citations/CitationSearch'
-import { findCitations, ResultList } from './citations/citationService'
-import fullRender from './testUtils/fullRender'
-jest.mock('./citations/citationService')
+import CitationSearch from './CitationSearch'
+import { findCitations, ResultList } from '../citationService'
+import fullRender from '../../testUtils/fullRender'
+jest.mock('../citationService')
 
 const makeResultsList = ({
   length = 20,
@@ -30,7 +30,7 @@ const makeResultsList = ({
       index += pageSize * currentPage
       return {
         id: index.toString(),
-        volume: (index % 26).toString(),
+        volume: index % 26,
         number: index + offset + 1,
         title: `Title ${index}`,
         rawText: `Raw text ${index}`,

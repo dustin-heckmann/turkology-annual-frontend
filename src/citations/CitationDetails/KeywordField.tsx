@@ -1,5 +1,5 @@
 import React from 'react'
-import { Keyword } from './Citation'
+import { Keyword } from '../Citation'
 
 interface Props {
   keyword: Keyword

@@ -128,27 +128,25 @@ const About = () => (
       </li>
     </ul>
     <h3>The Team</h3>
-    <p>
-      <ul>
-        <li>
-          Prof. Dr. Anette Frank: project director (Computational Linguistics)
-        </li>
-        <li>Prof. Dr. Michael Ursinus: project director (Islamic Studies)</li>
-        <li>
-          Matthias Arnold: coordination (image processing and user interface)
-        </li>
-        <li>
-          Peter Gietz: coordination (integration into Heidelberg Research
-          Architecture)
-        </li>
-        <li>Christian Roth: general coordination</li>
-        <li>Arina Chitavong: scanning</li>
-        <li>Jens Hansche: scanning</li>
-        <li>Nicolas Bellm: programming (database programming)</li>
-        <li>Mateusz Dolata: programming (syntax analysis)</li>
-        <li>Dustin Heckmann: programming (user interface)</li>
-      </ul>
-    </p>
+    <ul>
+      <li>
+        Prof. Dr. Anette Frank: project director (Computational Linguistics)
+      </li>
+      <li>Prof. Dr. Michael Ursinus: project director (Islamic Studies)</li>
+      <li>
+        Matthias Arnold: coordination (image processing and user interface)
+      </li>
+      <li>
+        Peter Gietz: coordination (integration into Heidelberg Research
+        Architecture)
+      </li>
+      <li>Christian Roth: general coordination</li>
+      <li>Arina Chitavong: scanning</li>
+      <li>Jens Hansche: scanning</li>
+      <li>Nicolas Bellm: programming (database programming)</li>
+      <li>Mateusz Dolata: programming (syntax analysis)</li>
+      <li>Dustin Heckmann: programming (user interface)</li>
+    </ul>
     <h3>Important note</h3>
     <p>
       We are not involved in the actual editing of the TA. For any questions,

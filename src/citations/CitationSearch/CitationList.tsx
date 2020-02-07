@@ -1,5 +1,5 @@
 import React from 'react'
-import Citation from './Citation'
+import Citation from '../Citation'
 import CitationListItem from './CitationListItem'
 
 interface Props {

@@ -4,11 +4,11 @@ import React from 'react'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 import './App.css'
 import Citations from './citations/Citations'
-import Header from './components/Header'
+import Header from './header/Header'
 import './index.css'
 import StatisticsPage from './statistics/StatisticsPage'
 import { ThroughProvider } from 'react-through'
-import About from './About'
+import About from './about/About'
 
 const App = () => (
   <ThroughProvider>

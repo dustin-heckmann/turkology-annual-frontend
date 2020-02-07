@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Citation from './Citation'
+import Citation from '../Citation'
 import styles from './CitationListItem.module.css'
 
 interface Props {

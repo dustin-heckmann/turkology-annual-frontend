@@ -2,8 +2,8 @@ import queryString from 'query-string'
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
 import { useAsync } from 'react-use'
-import CitationSearchResult from '../CitationSearchResult'
-import { findCitations, ResultList } from './citationService'
+import CitationSearchResult from './CitationSearchResult'
+import { findCitations, ResultList } from '../citationService'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
 
 const parseQueryParameters = (search: string) => {

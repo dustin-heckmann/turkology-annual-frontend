@@ -1,8 +1,8 @@
 import React from 'react'
-import Citation from './citations/Citation'
-import CitationList from './citations/CitationList'
-import PaginationSelector from './citations/PaginationSelector'
-import SearchHeader from './citations/SearchHeader'
+import Citation from '../Citation'
+import CitationList from './CitationList'
+import PaginationSelector from './PaginationSelector'
+import SearchHeader from './SearchHeader'
 
 interface Props {
   page: number
