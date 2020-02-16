@@ -1,3 +1,11 @@
+# turkology-annual-frontennd
+
+Frontend for Turkology Annual Online
+
+[About Turkology Annual Online](http://www.asia-europe.uni-heidelberg.de/en/research/heidelberg-research-architecture/projects/turkology-annual.html)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
