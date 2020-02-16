@@ -97,7 +97,7 @@ const About = () => (
     <h3>Partners</h3>
     <ul>
       <li>
-        <a href="http://orientalistik.univie.ac.at/home">
+        <a href="http://orientalistik.univie.ac.at">
           Department of Oriental Studies, University of Vienna (page in German)
         </a>
         <br />
