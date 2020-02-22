@@ -21,21 +21,30 @@ export const getCitation = async (citationId: string): Promise<Citation> => {
   const response = await fetch(`/api/citations/${citationId}`)
   if (!response.ok) throw new Error('Could not fetch citation')
   const body = await response.json()
-  return body.result
+  return body
 }
+
+const HITS_PER_PAGE = 50
 
 export async function findCitations(
   { volume, number, fullText, keyword }: Query,
   page: number = 0
 ): Promise<ResultList> {
+  const skip = page * HITS_PER_PAGE
   const queryString = new URLSearchParams({
     volume: volume ?? '',
     number: number ?? '',
     q: fullText || '',
     keyword: keyword || '',
-    page: page.toString()
+    skip: skip.toString(),
+    limit: HITS_PER_PAGE.toString()
   }).toString()
   const response = await fetch(`/api/citations?${queryString}`)
   if (!response.ok) throw new Error('Could not fetch citations')
-  return await response.json()
+  const results = await response.json()
+  return {
+    ...results,
+    offset: skip,
+    pagesTotal: Math.ceil(results.total / HITS_PER_PAGE)
+  }
 }
