@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import logo from '../img/logo_cluster.png'
+import logo from '../img/logo_hcts.png'
 import styles from './Header.module.css'
 import Navigation from './Navigation'
 import PageTitle from './PageTitle'

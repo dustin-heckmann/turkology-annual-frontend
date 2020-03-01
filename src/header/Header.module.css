@@ -1,7 +1,7 @@
 .header {
   display: grid;
   padding: 10px;
-  background-color: #9bc057;
+  background-color: #cc1922;
   min-height: 120px;
   grid-template-areas:
     'cluster-logo . '
