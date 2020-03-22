@@ -4,9 +4,9 @@ import styles from './Navigation.module.css'
 
 const Navigation = () => (
   <nav className={styles.navigation}>
-    <Link to="/citations">Publications</Link>
+    <Link to="/citations">Search Citations</Link>
+    <a href="/export">Export JSON</a>
     <Link to="/about">About</Link>
-    <a href="/export">Export</a>
   </nav>
 )
 
