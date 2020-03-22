@@ -26,7 +26,7 @@ const Header = () => {
           />
         </a>
         <div className={styles.appName}>
-          <Link to="/citations">Turkology Annual Online</Link>
+          <Link to="/">Turkology Annual Online</Link>
         </div>
         <div className={styles.searchBar}>
           <SearchBar query={query} />
