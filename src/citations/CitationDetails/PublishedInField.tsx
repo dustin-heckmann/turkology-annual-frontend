@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './CitationField.module.css'
 import { PublishedIn } from '../Citation'
+import { Link } from 'react-router-dom'
 
 interface Props {
   label: string
@@ -50,7 +51,10 @@ const TaField = ({ label, value }: InternalProps) => {
   return (
     <div className={styles.field}>
       <label>{label}:</label>
-      TA {value.volume}.{value.number}, pages {value.pageStart}-{value.pageEnd}
+      <Link to={`/citations?volume=${value.volume}&number=${value.number}`}>
+        TA {value.volume}.{value.number}
+      </Link>
+      , pages {value.pageStart}-{value.pageEnd}
     </div>
   )
 }
