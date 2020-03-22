@@ -7,9 +7,7 @@ const Navigation = () => (
     <Link to="/citations">Publications</Link>
     <Link to="/statistics/completeness">Completeness</Link>
     <Link to="/about">About</Link>
-    <Link to="/export" target="_blank">
-      Export
-    </Link>
+    <a href="/export">Export</a>
   </nav>
 )
 
